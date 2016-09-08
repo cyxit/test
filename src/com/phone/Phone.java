@@ -8,28 +8,28 @@ public class Phone {
 	public static void main(String[] args) {
 		Connection conn = null;
 		try {
-			//¼ÓÔØÇı¶¯
+			//åŠ è½½é©±åŠ¨
 			Class.forName("com.mysql.jdbc.Driver");
-			//»ñÈ¡Á´½Ó
+			//è·å–é“¾æ¥
 			String url = "jdbc:mysql://120.76.155.46:3306/test?useUnicode=true&characterEncoding=UTF-8";
 			String userName = "test";
 			String password = "test";
 			conn = java.sql.DriverManager.getConnection(url, userName, password);
 			
-			//´´½¨¶Ô»°
+			//åˆ›å»ºå¯¹è¯
 			Statement statement = conn.createStatement();
-//			//Ôö¼ÓÊı¾İ
+//			//å¢åŠ æ•°æ®
 //			statement.addBatch("insert into phone_c(phone,name,email,address)values(?,?,?,?)");
 //			int[] a = statement.executeBatch();
-//			//É¾³ıÊı¾İ
+//			//åˆ é™¤æ•°æ®
 //			statement.addBatch("delete from phone_c where name = 'peter'");
 //			int[] c = statement.executeBatch();
 //			
-//			//¸ÄÊı¾İ
+//			//æ”¹æ•°æ®
 //			statement.addBatch("update phone_c set phone ='6665' where name = 'peter' ");
 //			int[] d = statement.executeBatch();
 //			
-			//²éÑ¯Êı¾İ
+			//æŸ¥è¯¢æ•°æ®
 			ResultSet b = statement.executeQuery("select*from phone_c");
 			while (b.next()) {
 				String phone = b.getString("phone");
@@ -38,10 +38,10 @@ public class Phone {
 				String address = b.getString("address");
 				System.out.println("phone="+phone+" name="+name+" email="+email+" address="+address);
 			}
-			//¹Ø±Õ×ÊÔ´
+			//å…³é—­èµ„æº
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("Çı¶¯¼ÓÔØÊ§°Ü£¡");
+			System.out.println("é©±åŠ¨åŠ è½½å¤±è´¥ï¼ï¼");
 			e.printStackTrace();
 		}
 	}
